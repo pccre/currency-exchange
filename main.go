@@ -31,8 +31,10 @@ const absInterval = 6
 const timelineLimit = 10
 
 const interval = absInterval * time.Second
-var timeline = []map[string]int{}
+var wsConfig = websocket.Config{EnableCompression: true}
 var json = jsoniter.ConfigFastest
+
+var timeline = []map[string]int{}
 var pool = MutArray{Mut: &sync.RWMutex{}}
 
 // fast, doesn't keep order
@@ -125,7 +127,7 @@ func main() {
         }
       }
     }
-  }))
+  }, wsConfig))
   go startPool()
   log.Fatal(http.Listen(":8082"))
 }
