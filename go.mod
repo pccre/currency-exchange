@@ -5,7 +5,7 @@ go 1.21.3
 require (
 	github.com/gofiber/contrib/websocket v1.3.0
 	github.com/gofiber/fiber/v2 v2.51.0
-	github.com/pccre/utils v0.0.0-20231217202944-310217f86597
+	github.com/pccre/utils v0.0.0-20231217204951-0d3408007b7c
 )
 
 require (
