@@ -35,9 +35,8 @@ const timelineLimit int = 10
 
 const interval time.Duration = absInterval * time.Second
 
-var json = c.JSON
-
 // CODE STARTS HERE
+var json = c.JSON
 var timeline = []map[string]int{}
 var pool = Mut.Array[*Mut.WS]{Mut: &sync.RWMutex{}}
 
