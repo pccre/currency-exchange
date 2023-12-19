@@ -14,6 +14,7 @@ import (
 	"github.com/pccre/utils/c"
 )
 
+// FEEL FREE TO CONFIGURE
 var currencies = map[string]Currency{
 	"BTC": {
 		Min: 27000,
@@ -30,13 +31,13 @@ var currencies = map[string]Currency{
 }
 
 const absInterval = 6
-const timelineLimit = 10
+const timelineLimit int = 10
 
-const interval = absInterval * time.Second
+const interval time.Duration = absInterval * time.Second
 
-var wsConfig = websocket.Config{EnableCompression: true}
 var json = c.JSON
 
+// CODE STARTS HERE
 var timeline = []map[string]int{}
 var pool = Mut.Array[*Mut.WS]{Mut: &sync.RWMutex{}}
 
@@ -124,7 +125,7 @@ func main() {
 				}
 			}
 		}
-	}, wsConfig))
+	}, c.WSConfig))
 	go startPool()
 	log.Fatal(http.Listen(":8082"))
 }
